@@ -1,0 +1,5 @@
+Vol. Capturado = 
+CALCULATE(
+    SUM('Ventas a Sucursales'[Volumen]), 
+    NOT 'Tabela_Capturados'[Informante] IN {100, 101, 102, 400}
+)

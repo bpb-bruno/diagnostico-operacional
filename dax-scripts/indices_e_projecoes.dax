@@ -1,0 +1,12 @@
+// Agrupamento de medidas de índices e fatores
+
+Índice de Preço = 
+DIVIDE([Vendas Proj.], [Vol. Proj.], 0) / 9
+
+-------------------------------------------------
+
+Fator Projeção = 
+DIVIDE(
+    [Vol. Proj.],
+    [Vol. Capturado]
+)

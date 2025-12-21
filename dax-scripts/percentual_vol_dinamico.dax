@@ -1,0 +1,27 @@
+% Vol. Dinamico = 
+VAR AnoAnalisado = 
+    IF(
+        ISBLANK(SELECTEDVALUE(Calendario[Ano])),
+        MAX(Calendario[Ano]),
+        SELECTEDVALUE(Calendario[Ano])
+    )
+VAR AnoAnterior = AnoAnalisado - 1
+
+VAR CurrentYearVolume = 
+    CALCULATE(
+        SUM('Ventas a Sucursales'[Volumen]),
+        'Ventas a Sucursales'[Fecha (año)] = FORMAT(AnoAnalisado,"0000")
+    )
+
+VAR PreviousYearVolume = 
+    CALCULATE(
+        SUM('Ventas a Sucursales'[Volumen]),
+        'Ventas a Sucursales'[Fecha (año)] = FORMAT(AnoAnterior,"0000")
+    )
+
+RETURN
+    DIVIDE(
+        CurrentYearVolume - PreviousYearVolume,
+        PreviousYearVolume,
+        0
+    )

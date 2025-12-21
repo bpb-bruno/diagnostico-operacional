@@ -1,0 +1,28 @@
+Vol. RY. = 
+VAR AnoAtualRelativo = SELECTEDVALUE(Calendario[Ano])
+VAR MesInicio = 
+    CALCULATE(
+        MIN(SeletorPeriodoDinamicoRY[Mês Número]),
+        ALLSELECTED(SeletorPeriodoDinamicoRY[Mês Número])
+    )
+VAR MesFim = 
+    CALCULATE(
+        MAX(SeletorPeriodoDinamicoRY[Mês Número]),
+        ALLSELECTED(SeletorPeriodoDinamicoRY[Mês Número])
+    )
+VAR Resultado = 
+    CALCULATE(
+        [Suma de Volumen],
+        FILTER(
+            ALL('Calendario'),
+            (
+                // Meses do ano atual após MesFim (Jul-Dez)
+                ('Calendario'[Mês Número] > MesFim && 'Calendario'[Mês Número] <= 12 && 'Calendario'[Ano] = AnoAtualRelativo)
+                ||
+                // Meses do próximo ano de MesInicio a MesFim (Jan-Jun)
+                ('Calendario'[Mês Número] >= MesInicio && 'Calendario'[Mês Número] <= MesFim && 'Calendario'[Ano] = AnoAtualRelativo + 1)
+            )
+        )
+    )
+RETURN
+    COALESCE(Resultado, [Suma de Volumen])

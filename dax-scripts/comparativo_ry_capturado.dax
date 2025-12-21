@@ -1,0 +1,19 @@
+2023 a RY 2024 CAPTURADO = 
+VAR Meses2023 = { "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic" }
+VAR Meses2024 = { "ene", "feb", "mar", "abr" }
+RETURN
+CALCULATE(
+    [Vol. 2023],
+    KEEPFILTERS('Ventas a Sucursales'[Fecha (año)] = "2023"),
+    KEEPFILTERS('Ventas a Sucursales'[Fecha (mes)] IN Meses2023),
+    ALL('Ventas a Sucursales'[Fecha (índice de meses)]),
+    NOT 'Tabela_Capturados'[Informante] IN {100, 101, 102, 400}
+) 
++ 
+CALCULATE(
+    [Vol. 2024],
+    KEEPFILTERS('Ventas a Sucursales'[Fecha (año)] = "2024"),
+    KEEPFILTERS('Ventas a Sucursales'[Fecha (mes)] IN Meses2024),
+    ALL('Ventas a Sucursales'[Fecha (índice de meses)]),
+    NOT 'Tabela_Capturados'[Informante] IN {100, 101, 102, 400}
+)
