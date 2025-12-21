@@ -1,0 +1,21 @@
+[ Dim_Categoria ]
+              ↑
+      [ Dim_Subcategoria ]          [ Dim_Fabricante ]
+              ↑                             ↑
+        [ Dim_Producto ] <----------- [ Dim_Marca ]
+          (SKU/Preço)                       |
+              |                             |
+              |      +----------------------+
+              |      |
+              ▼      ▼
+      [ Ventas_a_Sucursales ] <--- [ Dim_Calendario ]
+        (Fato: Vol/Vendas)          (YTD/RY/Índices)
+              ▲      ▲
+              |      |
+              |      +------------ [ Dim_Informante ]
+              |                            ↑
+       [ Dim_Estado ]             [ Tabela_Capturados ]
+              ↑                   (IDs: 100, 101, 102, 400)
+              |
+       [ Dim_Region ]
+        (8 Regiões)
