@@ -7,7 +7,7 @@ Este projeto consistiu no desenvolvimento de um ecossistema de dados para a áre
 
 O dashboard permite a análise detalhada de indicadores de **Volume e Valor**, segmentados por Categorias, Regiões, Marcas e SKUs, auxiliando a gerência na tomada de decisão estratégica baseada em dados reais de mercado.
 
-![Visao Geral](screenshots/diagnostico-operaciona-2.png)
+---
 
 ## Especificações Técnicas e Arquitetura
 * **Volume de Dados:** Escala de milhões (Big Data), processados via **Power BI Data Flows** (fluxo de dados web fornecido pela unidade do México) e **SQL Server**.
