@@ -81,7 +81,7 @@ CALCULATE(
 
 * **SKU:** Detalhamento granular de Preço por Litro e filtros por tipo de embalagem.
 
-![SKU](screenshots/diagnostico-operaciona-6.png)
+![SKU](screenshots/diagnostico-operacional-6.png)
 
 ### 📐 Arquitetura do Modelo de Dados
 O modelo foi desenhado utilizando a metodologia **Snowflake Schema** para otimizar o armazenamento e garantir a integridade referencial de dados heterogêneos.
